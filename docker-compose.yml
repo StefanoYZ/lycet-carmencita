@@ -1,0 +1,11 @@
+services:
+  lycet:
+    build: .
+    container_name: lycet-carmencita
+    env_file:
+      - .env
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./data:/var/www/html/data
+    restart: unless-stopped
