@@ -77,6 +77,7 @@ COPY docker/config/* $PHP_INI_DIR/conf.d/
 COPY docker/docker-entrypoint.sh .
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" && \
     php bin/console cache:clear && \
+    mkdir -p ./data && \
     chmod -R 755 ./data
 
 ENTRYPOINT ["sh", "./docker-entrypoint.sh"]
